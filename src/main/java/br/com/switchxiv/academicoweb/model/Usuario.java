@@ -7,21 +7,28 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
-public class Usuario extends AbstractEntity implements UserDetails{
+public class Usuario extends AbstractEntity implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String matricula;
 	private String senha;
 	private String nome;
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Role> roles = new ArrayList<Role>();
+	@OneToOne(mappedBy = "usuario")
+	private Aluno aluno;
+	@OneToOne
+	private Endereco endereco;
+	@OneToOne(mappedBy = "usuario")
+	private Professor professor;
 
 	public String getMatricula() {
 		return matricula;
@@ -88,5 +95,29 @@ public class Usuario extends AbstractEntity implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 }
