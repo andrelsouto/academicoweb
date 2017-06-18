@@ -26,13 +26,13 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/produtos/form").hasRole("ADMIN")
+			/*.antMatchers("/produtos/form").hasRole("ADMIN")
 			.antMatchers("/carrinho/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/produtos").hasRole("ADMIN")
 			.antMatchers(HttpMethod.GET, "/produtos").access("hasRole('ADMIN') or hasRole('USER')")
 			.antMatchers("/produtos/**").permitAll()
 			.antMatchers("/resources/**").permitAll()
-			.antMatchers("/").permitAll()
+			.antMatchers("/").permitAll()*/
 			.anyRequest().permitAll()/*
 			.and().formLogin().loginPage("/login").permitAll()
 			.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))*/;
