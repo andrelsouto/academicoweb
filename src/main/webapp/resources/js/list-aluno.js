@@ -9,5 +9,10 @@ $(document).ready(function(){
 		$('input[name=numero]').val($(e.relatedTarget).data('numero'));
 		$('input[name=cidade]').val($(e.relatedTarget).data('cidade'));
 		$('input[name=estado]').val($(e.relatedTarget).data('estado'));
+		$('input[name=id]').val($(e.relatedTarget).data('id'));
+	});
+	$('#ModExcluir').on('show.bs.modal', function(e){
+		alert($(e.relatedTarget).data('id'));
+		$('input[name=id]').val($(e.relatedTarget).data('id'));
 	});
 });
