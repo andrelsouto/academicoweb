@@ -1,2 +1,2 @@
-/target/**/*/
-/src/main/java/br/com/switchxiv/academicoweb/conf/JPAConfigurarion.java
+/src/main/java/br/com/switchxiv/academicoweb/conf/JPAConfiguration.java
+/target/
