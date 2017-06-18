@@ -24,6 +24,16 @@ public class AlunoBusiness extends GenericBusiness<Aluno> implements AlunoReposi
 	}
 
 	@Override
+	public void remove(Aluno entity) {
+		manager.remove(manager.getReference(Aluno.class, entity.getId()));
+	}
+	
+	@Override
+	public Aluno find(Long id) {
+		return manager.find(Aluno.class, id);
+	}
+
+	@Override
 	public Collection<Aluno> list() {
 		Query query = manager.createQuery("from Aluno ORDER BY id", Aluno.class);
 
