@@ -1,11 +1,18 @@
 <%@ include file="/WEB-INF/jsp/menu.jsp" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <div class="col-md-10">
 			<div class="text-center">
 				<c:if test="${cadastro == 'sucesso'}">
 			<div class="alert alert-success" role="alert">
-				Cadastro atualizado com sucesso.
+				Dados atualizado com sucesso.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div></c:if>
+				<c:if test="${exclusao == 'sucesso'}">
+			<div class="alert alert-success" role="alert">
+				Dados exlcuídos com sucesso.
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button></div></c:if>
@@ -35,7 +42,7 @@
 									 		data-complemento="${aluno.usuario.endereco.complemento}" data-numero="${aluno.usuario.endereco.numero}"
 									 		 data-cidade="${aluno.usuario.endereco.cidade}" data-estado="${aluno.usuario.endereco.estado}"
 									 		  data-bairro="${aluno.usuario.endereco.bairro}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
-									<td><a href="#" data-toggle="modal" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
+									<td><a href="#" data-toggle="modal" data-id="${aluno.id}" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -105,15 +112,15 @@
 					<div class="modal-content">
 						<div class="modal-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Excluir curso</h4>
+							<h4 class="modal-title">Excluir aluno</h4>
 						</div>
 						<div class="modal-body text-center">
-							<h5><strong>Você realmente deseja exluir este curso?</strong></h5>
-							<form action="" method="POST">
-								<input type="hidden">
+							<h5><strong>Você realmente deseja exluir este aluno?</strong></h5>
+							<form:form action="${contextPath}aluno/excluir" method="POST">
+								<input type="hidden" name="id">
 								<button type="submit" class="btn btn-default">Sim</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-							</form>
+							</form:form>
 						</div>
 					</div>
 				</div>

@@ -11,4 +11,8 @@ $(document).ready(function(){
 		$('input[name=estado]').val($(e.relatedTarget).data('estado'));
 		$('input[name=id]').val($(e.relatedTarget).data('id'));
 	});
+	$('#ModExcluir').on('show.bs.modal', function(e){
+		alert($(e.relatedTarget).data('id'));
+		$('input[name=id]').val($(e.relatedTarget).data('id'));
+	});
 });

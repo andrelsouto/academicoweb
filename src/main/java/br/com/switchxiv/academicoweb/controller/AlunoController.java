@@ -85,4 +85,18 @@ public class AlunoController {
 
 	}
 
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
+	public ModelAndView excluir(Long id, RedirectAttributes attributes) {
+		try {
+
+			aRepository.remove(aRepository.find(id));
+			attributes.addFlashAttribute("exclusao", "sucesso");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ModelAndView("redirect:/aluno/lista");
+	}
+
 }
