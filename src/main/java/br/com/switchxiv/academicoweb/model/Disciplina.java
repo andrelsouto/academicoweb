@@ -3,7 +3,6 @@ package br.com.switchxiv.academicoweb.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -14,7 +13,7 @@ public class Disciplina extends AbstractEntity {
 	private String area;
 	@ManyToOne
 	private Curso curso;
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany
 	private List<Turma> turmas;
 
 	public String getNome() {

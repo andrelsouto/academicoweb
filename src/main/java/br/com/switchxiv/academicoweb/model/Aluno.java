@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -13,14 +12,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Aluno extends AbstractEntity {
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dataVinculo;
 	@ManyToOne
 	private Curso curso;
 	@OneToOne
 	private Usuario usuario;
-	@OneToMany(mappedBy = "aluno", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "aluno")
 	private List<Desempenho> desempenhos;
 
 	public Date getDataVinculo() {

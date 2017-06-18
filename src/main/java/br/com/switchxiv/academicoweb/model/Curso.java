@@ -3,7 +3,6 @@ package br.com.switchxiv.academicoweb.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -12,11 +11,11 @@ public class Curso extends AbstractEntity {
 
 	private String nome;
 	private String tipo;
-	@OneToMany(mappedBy = "curso", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "curso")
 	private List<Aluno> alunos;
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany
 	private List<Professor> professores;
-	@OneToMany(mappedBy = "curso", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "curso")
 	private List<Disciplina> disciplinas;
 
 	public String getNome() {

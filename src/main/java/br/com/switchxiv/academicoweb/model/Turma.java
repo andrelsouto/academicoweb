@@ -4,20 +4,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Turma extends AbstractEntity {
-	
+
 	private int semestre;
 	private LocalDate ano;
-	@OneToMany(mappedBy="turma", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "turma")
 	private List<Desempenho> desempenhos;
-	@ManyToMany(mappedBy="turmas", fetch=FetchType.EAGER)
+	@ManyToMany(mappedBy = "turmas")
 	private List<Disciplina> disciplinas;
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany
 	private List<Professor> professores;
 
 	public int getSemestre() {
