@@ -37,6 +37,7 @@ public class AlunoController {
 			aluno.setUsuario(usuario);
 			usuario.setAluno(aluno);
 			usuario.setEndereco(endereco);
+			usuario.setSenha("123456");
 			endereco.setUsuario(usuario);
 			aRepository.save(aluno);
 			redirectAttributes.addFlashAttribute("cadastro", "sucesso");
