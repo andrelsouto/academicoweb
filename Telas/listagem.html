@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="resource/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="resource/css/menuPrincipal.css">
+	<script type="text/javascript" src="resource/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="menu col-md-2">
+			<div class="text-left">
+				Bem vindo, Usuário!
+			</div>
+			<div class="text-right">
+				<a href="#">Sair</a>
+			</div>
+			<div class="img-user text-center">
+				<img src="resource/img/user.png" class="img-circle text-center">
+			</div>
+			<div class="text-center">
+				<p class="page-header">MENU</p>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true">
+					Cadastrar
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="#">Aluno</a></li>
+						<li><a href="cadastroCurso.html">Curso</a></li>
+						<li><a href="#">Disciplina</li>
+						<li><a href="#">Professor</a></li>
+						<li><a href="#">Turma</a></li>
+					</ul>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true">
+					Listar
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="#">Aluno</a></li>
+						<li><a href="#">Curso</a></li>
+						<li><a href="#">Disciplina</li>
+						<li><a href="#">Professor</a></li>
+						<li><a href="#">Turma</a></li>
+					</ul>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true">
+					Matricular
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="#">Aluno</a></li>
+						<li><a href="#">Professor</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10">
+			<div class="text-center">
+				<h1 class="page-header">Listagem de cursos</h1>
+			</div>
+			<div class="listagem">
+				<table class="table table-condensed">
+					<thead class="head">
+						<tr>
+							<th>ID</th>
+							<th>Curso</th>
+							<th>Tipo</th>
+							<th>Editar</th>
+							<th>Excluir</th>
+							</tr>
+					</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Ciência da Computação</td>
+									<td>Bacharelado</td>
+									<td><a href="#" data-toggle="modal" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="#" data-toggle="modal" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+
+							<tr>
+								<td>2</td>
+								<td>Ciência da Computação</td>
+								<td>Licenciatura</td>
+								<td><a href="#" data-toggle="modal" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-toggle="modal" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>Sistemas para Internet</td>
+								<td>Técnico</td>
+								<td><a href="#"><span data-toggle="modal" data-target="#ModEditar" class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-toggle="modal" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
+							</tr>
+							</tbody>
+							</table>
+				</div>
+			</div>
+			<!-- Modal Editar -->
+			<div class="modal fade" id="ModEditar" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Editar curso</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-edit">
+								<div class="form">
+									<form method="post" action="#">
+										<div class="form-group">
+											<input class="form-control" type="text" name="nome" placeholder="curso">
+										</div>
+										<div class="form-group">
+											<input type="text" name="tipo" class="form-control" placeholder="tipo">
+										</div>
+										<div class="text-center">
+											<button type="submit" class="btn btn-default">Editar</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Fim modal editar -->
+
+			<!--Modal exluir-->
+			<div class="modal fade" id="ModExcluir" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Excluir curso</h4>
+						</div>
+						<div class="modal-body text-center">
+							<h5><strong>Você realmente deseja exluir este curso?</strong></h5>
+							<form action="" method="POST">
+								<input type="hidden">
+								<button type="submit" class="btn btn-default">Sim</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Fim do modal exluir-->
+
+			<footer class="footer">
+				Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
+			</footer>
+		</div>
+		<script type="text/javascript" src="resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

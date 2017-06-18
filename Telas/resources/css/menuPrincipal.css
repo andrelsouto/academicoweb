@@ -1,0 +1,151 @@
+html,
+body {
+	height: 100%;
+	color: #2E9B6D;
+}
+
+.container-fluid {
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+}
+
+.img-user {
+	margin-top: 60px
+}
+
+.img-circle {
+	width: 180px;
+	height: 180px;
+}
+
+p, a {
+	color: #2E9B6D;
+}
+
+.container-fluid .menu.col-md-2 .text-right a:hover, 
+	.container-fluid .menu.col-md-2 .text-right a:focus {
+	color: #2E9B6D;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.menu {
+	border-right: 1px solid #2E9B6D;
+	background-color: #efefef;
+	margin-left: -15px;
+	color: #2E9B6D;
+	height: 100vh;
+}
+
+.page-header {
+	border-bottom: 1px solid #2E9B6D;
+}
+
+.page-header:hover {
+	color: #2E9B6D;
+	border-bottom: 1px solid #2E9B6D;
+	text-decoration: none;
+}
+
+.dropdown .btn{
+	border: 0;
+	background-color: #efefef;
+	color: #2E9B6D;
+}
+
+.dropdown-menu li a, .dropdown-menu li a:hover {
+	color: #2E9B6D;	
+}
+
+.menu .text-left {
+	margin-top: 10px;
+	float: left;
+}
+
+.menu .text-right {
+	margin-top: 10px;
+	float: right;
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background: #2E9B6D;
+	color: white;
+	height: 40px;
+	display: flex;
+}
+
+.form-group .form-control {
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 0;
+	color: #2E9B6D;
+}
+
+.form-group {
+	border-bottom: 1px solid #2E9B6D;
+}
+
+.listagem {
+	margin-top: 45px;
+	padding: 0 150px;
+}
+
+.form-group .form-control::-webkit-input-placeholder {
+	font-weight: bold;
+	color: #2E9B6D;
+}
+
+.col-md-10:hover {
+	color: #2E9B6D;
+}
+
+td a:hover {
+	color: #2E9B6D;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+tbody tr, .modal-header {
+	border-bottom: 1px solid #2E9B6D;
+}
+
+span:hover {
+	font-weight: bold;
+}
+
+.btn {
+	margin-top: 25px;
+}
+
+.btn-default {
+	color: #2E9B6D;
+	border: 1px solid #2E9B6D;
+}
+
+.btn-default:hover {
+	background-color: #2E9B6D;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.modal.fade , .modal.fade .close, .glyphicon:hover, 
+	.col-md-10:hover, .col-md-10, .glyphicon {
+	color: #2E9B6D;
+}
+
+.close:hover {
+	opacity: 100;
+}
+
+.form {
+	padding: 0 150px;
+}
+
+.form-edit .form {
+	padding: 0;
+}
