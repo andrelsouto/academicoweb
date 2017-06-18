@@ -50,5 +50,15 @@ public class AlunoController {
 		return new ModelAndView("redirect:/aluno/cadastro");
 
 	}
+	
+	@RequestMapping(value="/lista", method = RequestMethod.GET)
+	public ModelAndView lista(){
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("aluno/list");
+		modelAndView.addObject("alunos", aRepository.list());
+		
+		return modelAndView;
+	}
 
 }
