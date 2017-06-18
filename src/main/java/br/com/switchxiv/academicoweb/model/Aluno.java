@@ -18,7 +18,7 @@ public class Aluno extends AbstractEntity {
 	private Date dataVinculo;
 	@ManyToOne
 	private Curso curso;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 	@OneToMany(mappedBy = "aluno")
 	private List<Desempenho> desempenhos;

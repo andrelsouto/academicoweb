@@ -26,7 +26,7 @@ public class Usuario extends AbstractEntity implements UserDetails {
 	private List<Role> roles = new ArrayList<Role>();
 	@OneToOne(mappedBy = "usuario")
 	private Aluno aluno;
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade=CascadeType.ALL)
 	private Endereco endereco;
 	@OneToOne(mappedBy = "usuario")
 	private Professor professor;
