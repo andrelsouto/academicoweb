@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -25,7 +26,7 @@ public class Usuario extends AbstractEntity implements UserDetails {
 	private List<Role> roles = new ArrayList<Role>();
 	@OneToOne(mappedBy = "usuario")
 	private Aluno aluno;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	private Endereco endereco;
 	@OneToOne(mappedBy = "usuario")
 	private Professor professor;

@@ -3,6 +3,7 @@ package br.com.switchxiv.academicoweb.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class Aluno extends AbstractEntity {
 	private Date dataVinculo;
 	@ManyToOne
 	private Curso curso;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Usuario usuario;
 	@OneToMany(mappedBy = "aluno")
 	private List<Desempenho> desempenhos;
