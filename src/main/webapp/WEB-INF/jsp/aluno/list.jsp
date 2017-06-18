@@ -3,6 +3,12 @@
 
 <div class="col-md-10">
 			<div class="text-center">
+				<c:if test="${cadastro == 'sucesso'}">
+			<div class="alert alert-success" role="alert">
+				Cadastro atualizado com sucesso.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div></c:if>
 				<h1 class="page-header">Listagem de alunos</h1>
 			</div>
 			<div class="listagem">
@@ -47,8 +53,9 @@
 						<div class="modal-body">
 							<div class="form-edit">
 								<div class="form">
-									<form:form>
+									<form:form method="post" action="${contextPath}aluno/editar">
 										<div class="form-group">
+										<input type="hidden" name="id">
 						<input class="form-control" type="text" name="matricula" placeholder="matricula">
 					</div>
 					<div class="form-group">

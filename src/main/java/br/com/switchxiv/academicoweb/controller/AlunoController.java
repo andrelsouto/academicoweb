@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -56,15 +54,35 @@ public class AlunoController {
 		return new ModelAndView("redirect:/aluno/cadastro");
 
 	}
-	
-	@RequestMapping(value="/lista", method = RequestMethod.GET)
-	public ModelAndView lista(){
-		
+
+	@RequestMapping(value = "/lista", method = RequestMethod.GET)
+	public ModelAndView lista() {
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("aluno/list");
 		modelAndView.addObject("alunos", aRepository.list());
-		
+
 		return modelAndView;
+	}
+
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public ModelAndView editar(Aluno aluno, BindingResult result, Usuario usuario, Endereco endereco,
+			RedirectAttributes attributes) {
+		try {
+
+			aluno.setUsuario(usuario);
+			usuario.setAluno(aluno);
+			usuario.setEndereco(endereco);
+			endereco.setUsuario(usuario);
+			aRepository.save(aluno);
+			attributes.addFlashAttribute("cadastro", "sucesso");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ModelAndView("redirect:/aluno/lista");
+
 	}
 
 }
