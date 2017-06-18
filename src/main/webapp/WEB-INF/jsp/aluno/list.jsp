@@ -21,10 +21,14 @@
 								<c:forEach items="${alunos}" var="aluno">
 								<tr>
 									<td>${aluno.id}</td>
-									<td>${aluno.usuario.matricula}</td>
+									<td class="mat">${aluno.usuario.matricula}</td>
 									<td>${aluno.usuario.nome}</td>
 									<td>${aluno.curso.nome}</td>
-									<td><a href="#" data-toggle="modal" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="#" data-toggle="modal" data-nome="${aluno.usuario.nome}" data-matricula="${aluno.usuario.matricula}" data-curso="${aluno.curso.id}"
+									 	data-id="${aluno.id}" data-rua="${aluno.usuario.endereco.rua}" data-cep="${aluno.usuario.endereco.cep}"
+									 		data-complemento="${aluno.usuario.endereco.complemento}" data-numero="${aluno.usuario.endereco.numero}"
+									 		 data-cidade="${aluno.usuario.endereco.cidade}" data-estado="${aluno.usuario.endereco.estado}"
+									 		  data-bairro="${aluno.usuario.endereco.bairro}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									<td><a href="#" data-toggle="modal" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
 								</tr>
 								</c:forEach>
@@ -114,6 +118,7 @@
 			</footer>
 		</div>
 		<script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${contextPath}resources/js/list-aluno.js"></script>
 </body>
 
 </html>
