@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
-		<div class="col-md-10">
+		<div class="col-md-10 pull-right">
 			<div class="text-center">
 				<h1 class="page-header">Cadastro de curso</h1>
 			</div>
@@ -20,10 +20,12 @@
 				</form:form>
 			</div>
 		</div>
-		<footer class="footer">
-			Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
-		</footer>
 	</div>
+	<div class="wrapper">
+		<div class="footer" >
+			Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
+		</div>
+		</div>
 <script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

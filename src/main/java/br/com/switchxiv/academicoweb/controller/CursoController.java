@@ -41,7 +41,7 @@ public class CursoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:curso/pagCadastroCurso");
+		return new ModelAndView("redirect:/curso/pagCadastroCurso");
 	}
 	
 	@RequestMapping(value = "/listagemCurso", method = RequestMethod.GET)
@@ -68,18 +68,21 @@ public class CursoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:curso/listagemCurso");
+		return new ModelAndView("redirect:/curso/listagemCurso");
 	}
 	
 	@RequestMapping(value = "/removerCurso", method = RequestMethod.POST)
-	public ModelAndView removerCurso(Long id){
-		
+	public ModelAndView removerCurso(Long id, RedirectAttributes attributes){
+		System.out.println(id);
+		System.out.println("entrou");
 		try {
 			cursoRepo.remove(cursoRepo.find(id));
+			attributes.addFlashAttribute("exclusao", "sucesso");
+			System.out.println("passou");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return new ModelAndView("redirect:curso/listagemCurso");
+		return new ModelAndView("redirect:/curso/listagemCurso");
 	}
 }

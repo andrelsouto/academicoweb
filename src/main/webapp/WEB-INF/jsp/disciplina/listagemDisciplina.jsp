@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-		<div class="col-md-10">
+		<div class="col-md-10 pull-right">
 			<div class="text-center">
 				<h1 class="page-header">Listagem de disciplinas</h1>
 			</div>
@@ -44,7 +44,7 @@
 							<div class="form-edit">
 								<div class="form">
 									<form:form method="post" action="${pageContext.request.contextPath}/disciplina/editarDisciplina">
-									<input id="id_curso" type="hidden" name="id">
+									<input id="id_disciplina" type="hidden" name="id">
 										<div class="form-group">
 											<input id="inputnome" class="form-control" type="text" name="nome" placeholder="Disciplina">
 										</div>
@@ -52,7 +52,7 @@
 											<input id="inputarea" type="text" name="area" class="form-control" placeholder="Area">
 										</div>
 										<div class="form-group">
-											<input id="inputcurso" type="text" name="curso" class="form-control" placeholder="Curso">
+											<input id="inputcurso" type="text" name="curso_id" class="form-control" placeholder="Curso">
 										</div>
 										<div class="text-center">
 											<button type="submit" class="btn btn-default">Editar</button>
@@ -86,10 +86,11 @@
 				</div>
 			</div>
 			<!--Fim do modal exluir-->
-
-			<footer class="footer">
+		</div>
+		<div class="wrapper">
+			<div class="footer">
 				Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
-			</footer>
+			</div>
 		</div>
 <script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 

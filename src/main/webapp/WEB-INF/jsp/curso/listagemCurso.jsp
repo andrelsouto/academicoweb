@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-		<div class="col-md-10">
+		<div class="col-md-10 pull-right">
 			<div class="text-center">
 				<h1 class="page-header">Listagem de cursos</h1>
 			</div>
@@ -70,21 +70,22 @@
 							<h4 class="modal-title">Excluir curso</h4>
 						</div>
 						<div class="modal-body text-center">
-							<h5><strong>Você realmente deseja exluir este curso?</strong></h5>
+							<h5><strong>Vocï¿½ realmente deseja exluir este curso?</strong></h5>
 							<form:form action="${pageContext.request.contextPath}/curso/removerCurso" method="POST">
 								<input type="hidden" id="cod" name="id">
 								<button type="submit" class="btn btn-default">Sim</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Nï¿½o</button>
 							</form:form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!--Fim do modal exluir-->
-
-			<footer class="footer">
+		</div>
+		<div class="wrapper">
+			<div class="footer">
 				Alunos: AndrÃ© Luiz e Robson Luiz | Switch XIV Development &copy;
-			</footer>
+			</div>
 		</div>
 <script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 

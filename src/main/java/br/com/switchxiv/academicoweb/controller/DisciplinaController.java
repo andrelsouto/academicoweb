@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.switchxiv.academicoweb.dao.CursoRepository;
 import br.com.switchxiv.academicoweb.dao.DisciplinaRepository;
+import br.com.switchxiv.academicoweb.model.Curso;
 import br.com.switchxiv.academicoweb.model.Disciplina;
 
 @RequestMapping("/disciplina")
@@ -21,40 +23,44 @@ public class DisciplinaController {
 	@Autowired
 	private DisciplinaRepository disciplinaRepo;
 	
+	@Autowired
+	private CursoRepository cursoRepo;
+	
 	@RequestMapping(value =  "/pagCadastroDisciplina", method = RequestMethod.GET)
 	public ModelAndView pagCadastroDisciplina() {
 
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("disciplina/pagCadastroDisciplina");
+		List<Curso> cursos = new ArrayList<Curso>();
+		cursos = cursoRepo.getList();
+		//ModelAndView modelAndView = new ModelAndView();
+		//modelAndView.setViewName("disciplina/pagCadastroDisciplina");
 		
-		return modelAndView;
+		//return modelAndView;
+		return new ModelAndView("disciplina/pagCadastroDisciplina", "cursos", cursos);
 	}
 	
 	@RequestMapping(value = "/cadastrarDisciplina", method = RequestMethod.POST)
-	public ModelAndView cadastrarCurso(Disciplina disciplina, BindingResult result, RedirectAttributes redirectAttributes){
+	public ModelAndView cadastrarCurso(Disciplina disciplina, Long curso_id, BindingResult result, RedirectAttributes redirectAttributes){
 		try {
 			
+			disciplina.setCurso(cursoRepo.find(curso_id));
 			disciplinaRepo.save(disciplina);
 			redirectAttributes.addFlashAttribute("cadastro", "sucesso");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:disciplina/pagCadastroDisciplina");
+		return new ModelAndView("redirect:/disciplina/pagCadastroDisciplina");
 	}
 	
 	@RequestMapping(value = "/listagemDisciplina", method = RequestMethod.GET)
 	public ModelAndView listagemDisciplina(){
-		//Map<String, Object> disciplinasCursos = new HashMap<String, Object>();
+		
 		List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-		//List<Curso> cursos = new ArrayList<Curso>();
 		
 		try {
+			
 			disciplinas = disciplinaRepo.getListCurso();
 			System.out.println(disciplinas);
-			//cursos = cursoRepo.getList();
-			//disciplinasCursos.put("disciplinas", disciplinas);
-			//disciplinasCursos.put("cursos", cursos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,16 +69,17 @@ public class DisciplinaController {
 	}
 	
 	@RequestMapping(value = "/editarDisciplina", method = RequestMethod.POST)
-	public ModelAndView editarDisciplina(Disciplina disciplina, BindingResult result, RedirectAttributes redirectAttributes){
+	public ModelAndView editarDisciplina(Disciplina disciplina, Long curso_id, BindingResult result, RedirectAttributes redirectAttributes){
 		try {
 			
+			disciplina.setCurso(cursoRepo.find(curso_id));
 			disciplinaRepo.save(disciplina);
-			redirectAttributes.addFlashAttribute("cadastro", "sucesso");
+			redirectAttributes.addFlashAttribute("editado", "sucesso");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:disciplina/listagemDisciplina");
+		return new ModelAndView("redirect:/disciplina/listagemDisciplina");
 	}
 	
 	@RequestMapping(value = "/removerDisciplina", method = RequestMethod.POST)
@@ -84,6 +91,6 @@ public class DisciplinaController {
 			e.printStackTrace();
 		}
 
-		return new ModelAndView("redirect:disciplina/listagemDisciplina");
+		return new ModelAndView("redirect:/disciplina/listagemDisciplina");
 	}
 }
