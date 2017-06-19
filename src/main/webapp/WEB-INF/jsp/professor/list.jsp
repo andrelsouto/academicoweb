@@ -16,7 +16,7 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button></div></c:if>
-				<h1 class="page-header">Listagem de alunos</h1>
+				<h1 class="page-header">Listagem de professores</h1>
 			</div>
 			<div class="listagem">
 				<table class="table table-condensed">
@@ -25,23 +25,23 @@
 							<th>ID</th>
 							<th>Matricula</th>
 							<th>Nome</th>
-							<th>Curso</th>
+							<th>Titulação</th>
 							<th>Editar</th>
 							<th>Excluir</th>
 							</tr>
 					</thead>
 							<tbody>
-								<c:forEach items="${alunos}" var="aluno">
+								<c:forEach items="${professores}" var="professor">
 								<tr>
-									<td>${aluno.id}</td>
-									<td class="mat">${aluno.usuario.matricula}</td>
-									<td>${aluno.usuario.nome}</td>
-									<td>${aluno.curso.nome}</td>
-									<td><a href="#" data-toggle="modal" data-nome="${aluno.usuario.nome}" data-matricula="${aluno.usuario.matricula}" data-curso="${aluno.curso.id}"
-									 	data-id="${aluno.id}" data-rua="${aluno.usuario.endereco.rua}" data-cep="${aluno.usuario.endereco.cep}"
-									 		data-complemento="${aluno.usuario.endereco.complemento}" data-numero="${aluno.usuario.endereco.numero}"
-									 		 data-cidade="${aluno.usuario.endereco.cidade}" data-estado="${aluno.usuario.endereco.estado}"
-									 		  data-bairro="${aluno.usuario.endereco.bairro}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td>${professor.id}</td>
+									<td class="mat">${professor.usuario.matricula}</td>
+									<td>${professor.usuario.nome}</td>
+									<td>${professor.titulacao}</td>
+									<td><a href="#" data-toggle="modal" data-nome="${professor.usuario.nome}" data-matricula="${professor.usuario.matricula}"
+									 	data-id="${aluno.id}" data-rua="${professor.usuario.endereco.rua}" data-cep="${professor.usuario.endereco.cep}"
+									 		data-complemento="${professor.usuario.endereco.complemento}" data-numero="${professor.usuario.endereco.numero}"
+									 		 data-cidade="${professor.usuario.endereco.cidade}" data-estado="${professor.usuario.endereco.estado}"
+									 		  data-bairro="${professor.usuario.endereco.bairro}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									<td><a href="#" data-toggle="modal" data-id="${aluno.id}" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
 								</tr>
 								</c:forEach>

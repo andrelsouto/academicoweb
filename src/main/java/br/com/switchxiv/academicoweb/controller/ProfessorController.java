@@ -48,4 +48,21 @@ public class ProfessorController {
 
 	}
 
+	@RequestMapping(value = "/lista", method = RequestMethod.GET)
+	public ModelAndView list() {
+
+		ModelAndView modelAndView = new ModelAndView("professor/list");
+
+		try {
+
+			modelAndView.addObject("professores", pRepository.list());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return modelAndView;
+
+	}
+
 }
