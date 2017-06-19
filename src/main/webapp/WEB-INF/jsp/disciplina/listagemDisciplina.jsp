@@ -43,7 +43,7 @@
 						<div class="modal-body">
 							<div class="form-edit">
 								<div class="form">
-									<form method="post" action="${pageContext.request.contextPath}/disciplina/editarDisciplina">
+									<form:form method="post" action="${pageContext.request.contextPath}/disciplina/editarDisciplina">
 									<input id="id_curso" type="hidden" name="id">
 										<div class="form-group">
 											<input id="inputnome" class="form-control" type="text" name="nome" placeholder="Disciplina">
@@ -57,7 +57,7 @@
 										<div class="text-center">
 											<button type="submit" class="btn btn-default">Editar</button>
 										</div>
-									</form>
+									</form:form>
 								</div>
 							</div>
 						</div>
@@ -76,11 +76,11 @@
 						</div>
 						<div class="modal-body text-center">
 							<h5><strong>Você realmente deseja exluir esta disciplina?</strong></h5>
-							<form action="${pageContext.request.contextPath}/disciplina/removerDisciplina" method="POST">
+							<form:form action="${pageContext.request.contextPath}/disciplina/removerDisciplina" method="POST">
 								<input type="hidden" id="cod" name="id">
 								<button type="submit" class="btn btn-default">Sim</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-							</form>
+							</form:form>
 						</div>
 					</div>
 				</div>

@@ -7,7 +7,7 @@
 				<h1 class="page-header">Cadastro de curso</h1>
 			</div>
 			<div class="form">
-				<form method="post" action="#">
+				<form:form method="post" action="${pageContext.request.contextPath}/curso/cadastrarCurso">
 					<div class="form-group">
 						<input class="form-control" type="text" name="nome" placeholder="curso">
 					</div>
@@ -17,7 +17,7 @@
 					<div class="text-center">
 						<button type="submit" class="btn btn-default text-center">Cadastrar</button>
 					</div>		
-				</form>
+				</form:form>
 			</div>
 		</div>
 		<footer class="footer">
