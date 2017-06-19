@@ -28,11 +28,6 @@
 						<input class="form-control" type="text" name="titulacao" placeholder="titulação">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="curso">
-							<option value="">curso</option>
-						</select>
-					</div>
-					<div class="form-group">
 						<input class="form-control" type="text" name="cep" placeholder="cep">
 					</div>
 					<div class="form-group">

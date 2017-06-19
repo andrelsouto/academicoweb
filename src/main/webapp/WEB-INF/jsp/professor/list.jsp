@@ -38,11 +38,12 @@
 									<td>${professor.usuario.nome}</td>
 									<td>${professor.titulacao}</td>
 									<td><a href="#" data-toggle="modal" data-nome="${professor.usuario.nome}" data-matricula="${professor.usuario.matricula}"
-									 	data-id="${aluno.id}" data-rua="${professor.usuario.endereco.rua}" data-cep="${professor.usuario.endereco.cep}"
+									 	data-id="${professor.id}" data-rua="${professor.usuario.endereco.rua}" data-cep="${professor.usuario.endereco.cep}"
 									 		data-complemento="${professor.usuario.endereco.complemento}" data-numero="${professor.usuario.endereco.numero}"
 									 		 data-cidade="${professor.usuario.endereco.cidade}" data-estado="${professor.usuario.endereco.estado}"
-									 		  data-bairro="${professor.usuario.endereco.bairro}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
-									<td><a href="#" data-toggle="modal" data-id="${aluno.id}" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
+									 		  data-bairro="${professor.usuario.endereco.bairro}" 
+									 		   data-area="${professor.areaAtuacao}" data-titulacao="${professor.titulacao}" data-target="#ModEditar"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a href="#" data-toggle="modal" data-id="${professor.id}" data-target="#ModExcluir"><span class="glyphicon glyphicon-trash"></span></a></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -55,23 +56,24 @@
 					<div class="modal-content">
 						<div class="modal-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Editar aluno</h4>
+							<h4 class="modal-title">Editar professor</h4>
 						</div>
 						<div class="modal-body">
 							<div class="form-edit">
 								<div class="form">
-									<form:form method="post" action="${contextPath}aluno/editar">
+									<form:form method="post" action="${contextPath}professor/editar">
+									<input type="hidden" name="id">
 										<div class="form-group">
-										<input type="hidden" name="id">
 						<input class="form-control" type="text" name="matricula" placeholder="matricula">
 					</div>
 					<div class="form-group">
 						<input class="form-control" type="text" name="nome" placeholder="nome">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="curso">
-							<option value="">curso</option>
-						</select>
+						<input class="form-control" type="text" name="areaAtuacao" placeholder="área de atuação">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" name="titulacao" placeholder="titulação">
 					</div>
 					<div class="form-group">
 						<input class="form-control" type="text" name="cep" placeholder="cep">
@@ -133,7 +135,7 @@
 			</div>
 		</div>
 		<script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="${contextPath}resources/js/list-aluno.js"></script>
+		<script type="text/javascript" src="${contextPath}resources/js/list-professor.js"></script>
 </body>
 
 </html>

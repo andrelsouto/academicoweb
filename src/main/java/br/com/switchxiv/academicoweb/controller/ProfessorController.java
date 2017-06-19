@@ -36,6 +36,7 @@ public class ProfessorController {
 			professor.setUsuario(usuario);
 			usuario.setProfessor(professor);
 			usuario.setEndereco(endereco);
+			usuario.setSenha("123456");
 			endereco.setUsuario(usuario);
 			pRepository.save(professor);
 			attributes.addFlashAttribute("cadastro", "sucesso");
@@ -62,6 +63,27 @@ public class ProfessorController {
 		}
 
 		return modelAndView;
+
+	}
+	
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public ModelAndView editar(Professor professor, BindingResult result, Usuario usuario, Endereco endereco,
+			RedirectAttributes attributes) {
+
+		try {
+
+			professor.setUsuario(usuario);
+			usuario.setProfessor(professor);
+			usuario.setEndereco(endereco);
+			endereco.setUsuario(usuario);
+			pRepository.save(professor);
+			attributes.addFlashAttribute("cadastro", "sucesso");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ModelAndView("redirect:/professor/lista");
 
 	}
 

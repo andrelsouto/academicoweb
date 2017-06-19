@@ -24,7 +24,7 @@ public class ProfessorBusiness extends GenericBusiness<Professor> implements Pro
 	
 	@Override
 	public Collection<Professor> list() {
-		Query query = manager.createQuery("from Professor", Professor.class);
+		Query query = manager.createQuery("from Professor ORDER BY id", Professor.class);
 
 		@SuppressWarnings("unchecked")
 		Collection<Professor> list = query.getResultList();
