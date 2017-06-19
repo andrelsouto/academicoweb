@@ -6,8 +6,7 @@ body {
 
 .container-fluid {
 	width: 100%;
-	height: auto;
-	min-height: 100%;
+	min-height: calc(100vh - 40px);
 	padding: 0;
 }
 
@@ -31,11 +30,14 @@ p, a {
 	font-weight: bold;
 }
 
-.menu {
+.menu.col-md-2 {
+	height: 100vh;
+	left: 0;
+	top: 0;
+	position: fixed;
 	border-right: 1px solid #2E9B6D;
 	background-color: #efefef;
 	color: #2E9B6D;
-	height: 100vh;
 }
 
 .page-header {
@@ -68,16 +70,15 @@ p, a {
 	float: right;
 }
 
-footer {
-	padding-top: 7px;
-	width: 100%;
+.wrapper {
 	position: relative;
-	bottom: 0;
-	right: 0;
+}
+
+.footer {
+	width: 100%;
 	background: #2E9B6D;
 	color: white;
 	height: 40px;
-	display: flex;
 }
 
 .form-group .form-control {
@@ -157,4 +158,8 @@ select {
 
 .alert {
 	margin-top: 15px;
+}
+
+.col-md-10 .form .text-center {
+	margin-bottom: 15px;
 }

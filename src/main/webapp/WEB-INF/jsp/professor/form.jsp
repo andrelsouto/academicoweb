@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/menu.jsp"%>
+<%@ include file="/WEB-INF/jsp/menu.jsp" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
@@ -10,11 +10,11 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button></div></c:if>
-				<h1 class="page-header">Cadastro de aluno</h1>
+				<h1 class="page-header">Cadastro de professor</h1>
 			</div>
 			<div class="form">
 			
-				<form:form action="${contextPath}aluno/cadastrar" method="POST">
+				<form:form action="${contextPath}professor/cadastrar" method="POST">
 					<div class="form-group">
 						<input class="form-control" type="text" name="matricula" placeholder="matricula">
 					</div>
@@ -22,9 +22,10 @@
 						<input class="form-control" type="text" name="nome" placeholder="nome">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="curso">
-							<option value="">curso</option>
-						</select>
+						<input class="form-control" type="text" name="areaAtuacao" placeholder="área de atuação">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" name="titulacao" placeholder="titulação">
 					</div>
 					<div class="form-group">
 						<input class="form-control" type="text" name="cep" placeholder="cep">
