@@ -114,11 +114,11 @@
 					<div class="modal-content">
 						<div class="modal-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title">Excluir aluno</h4>
+							<h4 class="modal-title">Excluir professor</h4>
 						</div>
 						<div class="modal-body text-center">
-							<h5><strong>Você realmente deseja exluir este aluno?</strong></h5>
-							<form:form action="${contextPath}aluno/excluir" method="POST">
+							<h5><strong>Você realmente deseja exluir este professor?</strong></h5>
+							<form:form action="${contextPath}professor/excluir" method="POST">
 								<input type="hidden" name="id">
 								<button type="submit" class="btn btn-default">Sim</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>

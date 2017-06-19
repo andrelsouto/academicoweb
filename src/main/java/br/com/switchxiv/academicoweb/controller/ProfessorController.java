@@ -86,5 +86,21 @@ public class ProfessorController {
 		return new ModelAndView("redirect:/professor/lista");
 
 	}
+	
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
+	public ModelAndView excluir(Long id, RedirectAttributes attributes) {
+		try {
+			
+			pRepository.remove(pRepository.find(id));
+			attributes.addFlashAttribute("exclusao", "sucesso");
+
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		
+		}
+
+		return new ModelAndView("redirect:/professor/lista");
+	}
 
 }

@@ -30,5 +30,15 @@ public class ProfessorBusiness extends GenericBusiness<Professor> implements Pro
 		Collection<Professor> list = query.getResultList();
 		return list;
 	}
+	
+	@Override
+	public Professor find(Long id) {
+		return manager.find(Professor.class, id);
+	}
+	
+	@Override
+	public void remove(Professor entity) {
+		manager.remove(manager.getReference(Professor.class, entity.getId()));
+	}
 
 }
