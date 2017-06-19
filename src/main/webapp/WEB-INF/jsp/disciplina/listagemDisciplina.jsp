@@ -24,8 +24,8 @@
 									<td>${disciplina.id}</td>
 									<td>${disciplina.nome}</td>
 									<td>${disciplina.area}</td>
-									<td>${disciplina.nomeCurso }</td>
-									<td><a href="#" data-toggle="modal" data-target="#ModEditar" data-codigo="${disciplina.id}" data-nome="${disciplina.nome}" data-area="${disciplina.area}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+									<td>${disciplina.curso.nome }</td>
+									<td><a href="#" data-toggle="modal" data-target="#ModEditar" data-codigo="${disciplina.id}" data-curso="${disciplina.curso.nome}" data-nome="${disciplina.nome}" data-area="${disciplina.area}"><span class="glyphicon glyphicon-pencil"></span></a></td>
 									<td><a href="#" data-toggle="modal" data-target="#ModExcluir" data-codigoo="${disciplina.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 							</c:forEach>
@@ -46,10 +46,13 @@
 									<form method="post" action="${pageContext.request.contextPath}/disciplina/editarDisciplina">
 									<input id="id_curso" type="hidden" name="id">
 										<div class="form-group">
-											<input id="inputnome" class="form-control" type="text" name="nome" placeholder="disciplina">
+											<input id="inputnome" class="form-control" type="text" name="nome" placeholder="Disciplina">
 										</div>
 										<div class="form-group">
-											<input id="inputarea" type="text" name="area" class="form-control" placeholder="area">
+											<input id="inputarea" type="text" name="area" class="form-control" placeholder="Area">
+										</div>
+										<div class="form-group">
+											<input id="inputcurso" type="text" name="curso" class="form-control" placeholder="Curso">
 										</div>
 										<div class="text-center">
 											<button type="submit" class="btn btn-default">Editar</button>
@@ -96,7 +99,8 @@ $(document).ready(function() {
 	$("#ModEditar").on('show.bs.modal',function(event){
 		$("#inputnome").val($(event.relatedTarget).data("nome"));
 		$("#id_disciplina").val($(event.relatedTarget).data("codigo"));	
-		$("#inputarea").val($(event.relatedTarget).data("area"));	
+		$("#inputarea").val($(event.relatedTarget).data("area"));
+		$("#inputcurso").val($(event.relatedTarget).data("curso"));	
 	});
 
 	$("#ModExcluir").on('show.bs.modal',function(event){ 		// MODAL EXCLUIR
