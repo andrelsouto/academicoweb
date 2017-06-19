@@ -5,8 +5,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Disciplina.getList",query="SELECT d FROM Disciplina d ORDER BY d.id DESC"),
+	@NamedQuery(name="Disciplina.getListCurso",query="SELECT d FROM Disciplina d INNER JOIN d.curso c ORDER BY d.id DESC"),
+})
 public class Disciplina extends AbstractEntity {
 
 	private String nome;

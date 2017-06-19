@@ -4,9 +4,14 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Curso.getList",query="SELECT c FROM Curso c ORDER BY c.id DESC"),
+})
 public class Curso extends AbstractEntity {
 
 	private String nome;
@@ -57,5 +62,5 @@ public class Curso extends AbstractEntity {
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-
+	
 }
