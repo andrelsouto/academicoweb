@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-<div class="col-md-10">
+<div class="col-md-10 pull-right">
 			<div class="text-center">
 				<c:if test="${cadastro == 'sucesso'}">
 			<div class="alert alert-success" role="alert">

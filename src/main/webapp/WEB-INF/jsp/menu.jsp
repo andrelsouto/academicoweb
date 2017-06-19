@@ -17,7 +17,7 @@
 	<div class="container-fluid">
 		<div class="menu col-md-2">
 			<div class="text-left">
-				Bem vindo, Usuário!
+				Bem vindo, Usuários!
 			</div>
 			<div class="text-right">
 				<a href="#">Sair</a>

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
-<div class="col-md-10">
+<div class="col-md-10 pull-right">
 			<div class="text-center">
 			<c:if test="${cadastro == 'sucesso'}">
 			<div class="alert alert-success" role="alert">
@@ -22,10 +22,10 @@
 						<input class="form-control" type="text" name="nome" placeholder="nome">
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="text" name="areaAtuacao" placeholder="nome">
+						<input class="form-control" type="text" name="areaAtuacao" placeholder="área de atuação">
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="text" name="titulacao" placeholder="nome">
+						<input class="form-control" type="text" name="titulacao" placeholder="titulação">
 					</div>
 					<div class="form-group">
 						<select class="form-control" name="curso">
