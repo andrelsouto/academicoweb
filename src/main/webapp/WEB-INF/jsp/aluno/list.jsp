@@ -12,7 +12,7 @@
 </button></div></c:if>
 				<c:if test="${exclusao == 'sucesso'}">
 			<div class="alert alert-success" role="alert">
-				Dados exlcuídos com sucesso.
+				Dados exlcuï¿½dos com sucesso.
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button></div></c:if>
@@ -69,8 +69,11 @@
 						<input class="form-control" type="text" name="nome" placeholder="nome">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="curso">
+						<select class="form-control" name="curso_id">
 							<option value="">curso</option>
+							<c:forEach items="${cursos}" var="curso">
+								<option value="${curso.id}">${curso.nome}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
@@ -115,11 +118,11 @@
 							<h4 class="modal-title">Excluir aluno</h4>
 						</div>
 						<div class="modal-body text-center">
-							<h5><strong>Você realmente deseja exluir este aluno?</strong></h5>
+							<h5><strong>VocÃª realmente deseja exluir este aluno?</strong></h5>
 							<form:form action="${contextPath}aluno/excluir" method="POST">
 								<input type="hidden" name="id">
 								<button type="submit" class="btn btn-default">Sim</button>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">NÃ£o</button>
 							</form:form>
 						</div>
 					</div>
@@ -129,7 +132,7 @@
 		</div>
 		<div class="wrapper"> 
 			<div class="footer">
-				Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
+				Alunos: Andrï¿½ Luiz e Robson Luiz | Switch XIV Development &copy;
 			</div>
 		</div>
 		<script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

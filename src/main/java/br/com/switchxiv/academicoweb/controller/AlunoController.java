@@ -66,16 +66,18 @@ public class AlunoController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("aluno/list");
 		modelAndView.addObject("alunos", aRepository.list());
+		modelAndView.addObject("cursos", cRepository.getList());
 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
-	public ModelAndView editar(Aluno aluno, BindingResult result, Usuario usuario, Endereco endereco,
+	public ModelAndView editar(Aluno aluno, BindingResult result, Usuario usuario, Endereco endereco, Long curso_id,
 			RedirectAttributes attributes) {
 		try {
 
 			aluno.setUsuario(usuario);
+			aluno.setCurso(cRepository.find(curso_id));
 			usuario.setAluno(aluno);
 			usuario.setEndereco(endereco);
 			endereco.setUsuario(usuario);

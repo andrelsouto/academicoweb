@@ -10,9 +10,15 @@ $(document).ready(function(){
 		$('input[name=cidade]').val($(e.relatedTarget).data('cidade'));
 		$('input[name=estado]').val($(e.relatedTarget).data('estado'));
 		$('input[name=id]').val($(e.relatedTarget).data('id'));
+		$('select[name=curso_id] option[value="' + $(e.relatedTarget).data('curso') + '"]').prop('selected', 'true');
+		if ($('select option:selected').val() == "") {
+            $('select').css('font-weight', 'bold');
+        }
+        else {
+            $('select').css('font-weight', 'normal');
+        }
 	});
 	$('#ModExcluir').on('show.bs.modal', function(e){
-		alert($(e.relatedTarget).data('id'));
 		$('input[name=id]').val($(e.relatedTarget).data('id'));
 	});
 });

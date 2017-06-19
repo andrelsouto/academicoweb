@@ -14,7 +14,6 @@ $(document).ready(function(){
 		$('input[name=areaAtuacao]').val($(e.relatedTarget).data('area'));
 	});
 	$('#ModExcluir').on('show.bs.modal', function(e){
-		alert($(e.relatedTarget).data('id'));
 		$('input[name=id]').val($(e.relatedTarget).data('id'));
 	});
 });
