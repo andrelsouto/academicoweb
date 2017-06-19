@@ -154,3 +154,7 @@ span:hover {
 select {
 	font-weight: bold; 
 }
+
+.alert {
+	margin-top: 15px;
+}

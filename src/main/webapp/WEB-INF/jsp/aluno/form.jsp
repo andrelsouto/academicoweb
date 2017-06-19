@@ -4,6 +4,12 @@
 
 <div class="col-md-10">
 			<div class="text-center">
+			<c:if test="${cadastro == 'sucesso'}">
+			<div class="alert alert-success" role="alert">
+				Cadastro efetuado com sucesso.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></div></c:if>
 				<h1 class="page-header">Cadastro de aluno</h1>
 			</div>
 			<div class="form">
