@@ -9,4 +9,13 @@ import br.com.switchxiv.academicoweb.model.Professor;
 @Transactional
 public class ProfessorBusiness extends GenericBusiness<Professor> implements ProfessorRepository {
 
+	@Override
+	public Professor save(Professor entity) {
+		if (entity.getId() == null) {
+			manager.persist(entity);
+			return entity;
+		}
+		return manager.merge(entity);
+	}
+
 }

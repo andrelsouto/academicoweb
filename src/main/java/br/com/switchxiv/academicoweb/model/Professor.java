@@ -2,6 +2,7 @@ package br.com.switchxiv.academicoweb.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
@@ -13,7 +14,7 @@ public class Professor extends AbstractEntity {
 	private String titulacao;
 	@ManyToMany(mappedBy = "professores")
 	private List<Curso> cursos;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Usuario usuario;
 	@ManyToMany(mappedBy = "professores")
 	private List<Turma> turmas;

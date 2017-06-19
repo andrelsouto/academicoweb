@@ -160,3 +160,7 @@ select {
 .alert {
 	margin-top: 15px;
 }
+
+.col-md-10 .form .text-center {
+	margin-bottom: 15px;
+}
