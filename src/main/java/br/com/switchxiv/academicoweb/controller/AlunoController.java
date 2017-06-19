@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.switchxiv.academicoweb.dao.AlunoRepository;
+import br.com.switchxiv.academicoweb.dao.CursoRepository;
 import br.com.switchxiv.academicoweb.model.Aluno;
 import br.com.switchxiv.academicoweb.model.Endereco;
 import br.com.switchxiv.academicoweb.model.Usuario;
@@ -22,22 +23,26 @@ public class AlunoController {
 
 	@Autowired
 	private AlunoRepository aRepository;
+	@Autowired
+	private CursoRepository cRepository;
 
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public ModelAndView cadastro() {
 
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("cursos", cRepository.getList());
 		modelAndView.setViewName("aluno/form");
 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
-	public ModelAndView cadastrar(Aluno aluno, BindingResult result, Usuario usuario, Endereco endereco,
+	public ModelAndView cadastrar(Aluno aluno, BindingResult result, Usuario usuario, Endereco endereco, Long curso_id,
 			RedirectAttributes redirectAttributes) {
 		try {
 
 			aluno.setUsuario(usuario);
+			aluno.setCurso(cRepository.find(curso_id));
 			usuario.setAluno(aluno);
 			usuario.setEndereco(endereco);
 			usuario.setSenha("123456");

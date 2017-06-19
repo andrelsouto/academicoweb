@@ -22,8 +22,11 @@
 						<input class="form-control" type="text" name="nome" placeholder="nome">
 					</div>
 					<div class="form-group">
-						<select class="form-control" name="curso">
+						<select class="form-control" name="curso_id">
 							<option value="">curso</option>
+							<c:forEach items="${cursos}" var="curso">
+							<option value="${curso.id}">${curso.nome}</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
@@ -56,7 +59,7 @@
 	</div>
 		<div class="wrapper"> 
 			<div class="footer">
-				Alunos: André Luiz e Robson Luiz | Switch XIV Development &copy;
+				Alunos: Andrï¿½ Luiz e Robson Luiz | Switch XIV Development &copy;
 			</div>
 		</div>
 <script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

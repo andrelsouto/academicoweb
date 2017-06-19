@@ -31,4 +31,13 @@ public class CursoBusiness extends GenericBusiness<Curso> implements CursoReposi
 			return null;
 		}
 	}
+	
+	@Override
+	public Curso find(Long id) {
+		try {
+			return manager.find(Curso.class, id);
+		}catch (Exception e){
+			return null;
+		}
+	}
 }
