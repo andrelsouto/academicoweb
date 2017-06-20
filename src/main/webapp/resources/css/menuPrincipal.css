@@ -163,3 +163,7 @@ select {
 .col-md-10 .form .text-center {
 	margin-bottom: 15px;
 }
+
+.form .add.professor a:hover, .form .add.professor a:focus {
+	color: #2E9B6D;
+}
