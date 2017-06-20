@@ -12,7 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.switchxiv.academicoweb.dao.AlunoRepository;
 import br.com.switchxiv.academicoweb.dao.CursoRepository;
+import br.com.switchxiv.academicoweb.dao.DesempenhoRepository;
+import br.com.switchxiv.academicoweb.dao.TurmaRepository;
 import br.com.switchxiv.academicoweb.model.Aluno;
+import br.com.switchxiv.academicoweb.model.Desempenho;
 import br.com.switchxiv.academicoweb.model.Endereco;
 import br.com.switchxiv.academicoweb.model.Usuario;
 
@@ -25,6 +28,10 @@ public class AlunoController {
 	private AlunoRepository aRepository;
 	@Autowired
 	private CursoRepository cRepository;
+	@Autowired
+	private TurmaRepository tRepository;
+	@Autowired
+	private DesempenhoRepository dRepository;
 
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public ModelAndView cadastro() {
@@ -104,6 +111,45 @@ public class AlunoController {
 		}
 
 		return new ModelAndView("redirect:/aluno/lista");
+	}
+
+	@RequestMapping(value = "/addTurma", method=RequestMethod.GET)
+	public ModelAndView addTurma() {
+
+		ModelAndView andView = new ModelAndView("aluno/addTurma");
+
+		try {
+
+			andView.addObject("alunos", aRepository.list());
+			andView.addObject("turmas", tRepository.list());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return andView;
+
+	}
+	
+	@RequestMapping(value = "/adicionar", method=RequestMethod.POST)
+	public ModelAndView adicionar(Long turma,Long aluno, RedirectAttributes attributes) {
+		
+		ModelAndView modelAndView = new ModelAndView("redirect:/aluno/addTurma");
+		
+		try {
+			
+			Desempenho d = new Desempenho();
+			d.setAluno(aRepository.find(aluno));
+			d.setTurma(tRepository.find(turma));
+			dRepository.save(d);
+			attributes.addFlashAttribute("cadastro", "sucesso");
+			
+
+		} catch (Exception e) {
+
+		}
+		
+		return modelAndView;
 	}
 
 }
