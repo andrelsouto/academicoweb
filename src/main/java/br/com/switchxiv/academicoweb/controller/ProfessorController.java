@@ -10,6 +10,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.switchxiv.academicoweb.dao.CursoRepository;
 import br.com.switchxiv.academicoweb.dao.ProfessorRepository;
 import br.com.switchxiv.academicoweb.model.Endereco;
 import br.com.switchxiv.academicoweb.model.Professor;
@@ -22,6 +23,8 @@ public class ProfessorController {
 
 	@Autowired
 	private ProfessorRepository pRepository;
+	@Autowired
+	private CursoRepository cRepository;
 
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public ModelAndView cadastro() {
@@ -104,6 +107,23 @@ public class ProfessorController {
 		}
 
 		return new ModelAndView("redirect:/professor/lista");
+	}
+	
+	@RequestMapping(value="/addCurso", method=RequestMethod.GET)
+	public ModelAndView addCurso(){
+		
+		ModelAndView modelAndView = new ModelAndView("/addCurso");
+		
+		try {
+			
+			modelAndView.addObject("cursos", cRepository.getList());
+			modelAndView.addObject("professores", pRepository.list());
+			
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		return modelAndView;
 	}
 
 }
