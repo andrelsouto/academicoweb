@@ -129,7 +129,7 @@ span:hover {
 	border: 1px solid #2E9B6D;
 }
 
-.btn-default:hover {
+.btn-default:hover, .btn-default:focus {
 	background-color: #2E9B6D;
 	font-weight: bold;
 	color: #FFFFFF;

@@ -33,10 +33,10 @@
 					<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li><a href="#">Aluno</a></li>
-						<li><a href="#">Curso</a></li>
-						<li><a href="#">Disciplina</li>
-						<li><a href="#">Professor</a></li>
+						<li><a href="${contextPath}aluno/cadastro">Aluno</a></li>
+						<li><a href="${contextPath}curso/pagCadastroCurso">Curso</a></li>
+						<li><a href="${contextPath}disciplina/pagCadastroDisciplina">Disciplina</li>
+						<li><a href="${contextPath}professor/cadastro">Professor</a></li>
 						<li><a href="#">Turma</a></li>
 					</ul>
 				</div>
@@ -46,10 +46,10 @@
 					<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li><a href="#">Aluno</a></li>
-						<li><a href="listagem.html">Curso</a></li>
-						<li><a href="#">Disciplina</li>
-						<li><a href="#">Professor</a></li>
+						<li><a href="${contextPath}aluno/lista">Aluno</a></li>
+						<li><a href="${contextPath}curso/listagemCurso">Curso</a></li>
+						<li><a href="${contextPath}disciplina/listagemDisciplina">Disciplina</li>
+						<li><a href="${contextPath}professor/lista">Professor</a></li>
 						<li><a href="#">Turma</a></li>
 					</ul>
 				</div>

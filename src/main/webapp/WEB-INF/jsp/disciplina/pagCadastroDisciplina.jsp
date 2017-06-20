@@ -20,7 +20,8 @@
 					placeholder="Area">
 			</div>
 				<div class="form-group">
-					<select name="curso_id">
+					<select class="form-control" name="curso_id">
+						<option value="">Curso</option>
 						<c:forEach items="${cursos}" var="curso">
 							<option value="${curso.id}">${curso.nome}</option>
 						</c:forEach>
