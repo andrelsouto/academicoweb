@@ -40,4 +40,9 @@ public class DisciplinaBusiness extends GenericBusiness<Disciplina> implements D
 			return null;
 		}
 	}
+	
+	@Override
+	public Disciplina find(Long id) {
+		return manager.find(Disciplina.class, id);
+	}
 }

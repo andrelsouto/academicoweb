@@ -85,6 +85,7 @@ p, a {
 	border: 0;
 	border-radius: 0;
 	box-shadow: 0 0 0;
+	background-color: transparent;
 	color: #2E9B6D;
 }
 

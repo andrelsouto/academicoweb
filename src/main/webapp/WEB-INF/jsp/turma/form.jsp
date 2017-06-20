@@ -15,24 +15,26 @@
 			<div class="form">
 				<form:form action="${contextPath}turma/cadastrar" method="POST">
 					<div class="form-group">
-						<select id="" class="form-control" name="professor[0]">
+						<select class="form-control" name="professor">
 							<option value="">professor</option>
 							<c:forEach items="${professores}" var="professor">
 								<option value="${professor.id}">${professor.usuario.nome}</option>
 							</c:forEach>
 						</select>
 						</div>
-						<div class="extra">
-						
+					<div class="form-group">
+						<select class="form-control" name="disciplina">
+							<option value="">disciplina</option>
+							<c:forEach items="${disciplinas}" var="disciplina">
+								<option value="${disciplina.id}">${disciplina.nome}</option>
+							</c:forEach>
+						</select>
 						</div>
-					<div class="add professor">
-						<a href="#">Adicionar novo professor...</a>
-					</div>
-					<div class="rm professor" style="display: none;">
-						<a href="#">Remover novo professor...</a>
+					<div class="form-group">
+						<input class="form-control" type="text" name="semestre" placeholder="semestre">
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="text" name="matricula" placeholder="matricula">
+						<input class="form-control" readonly="readonly" type="text" name="ano" placeholder="ano" value="${ano}">
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-default text-center">Cadastrar</button>
@@ -49,41 +51,4 @@
 <script type="text/javascript" src="${contextPath}resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-<script type="text/javascript">
-$(document).ready(function(){
-	var x = 0;
-	var y = 0;
-	$('.add').click(function(){
-		x++;
-		$('.extra').append("<div class='"+ x + "'><div class='form-group'><select class='form-control' name='professor[" + x + "]'>" +
-							"<option value=''>professor</option>" +
-							"<c:forEach items='${professores}' var='professor'>" +
-							"<option value='${professor.id}'>${professor.usuario.nome}</option>" +
-							"</c:forEach>" +
-						"</select></div></div>");
-	if (x > 0){
-		y = 1;
-		if (y == 1 && x == 1){
-			$('.rm').css("display", "inline");
-			$('.rm a').css("color", "#2E9B6D");
-			$('.rm').css("float", "right");
-			$('.add').css("float", "left");
-		}
-	}
-	else {
-		y = 0;
-	}
-	});
-	$('.rm').click(function(e){
-		$("." + x).remove();
-		x--;
-		if (x == 0) {
-			$('.rm').css("display", "none");
-			y=0;
-		}
-
-		console.log(x + ";" + y);
-	});
-	
-});
 </script>
