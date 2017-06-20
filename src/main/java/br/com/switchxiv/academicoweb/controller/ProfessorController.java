@@ -112,7 +112,7 @@ public class ProfessorController {
 	@RequestMapping(value="/addCurso", method=RequestMethod.GET)
 	public ModelAndView addCurso(){
 		
-		ModelAndView modelAndView = new ModelAndView("/addCurso");
+		ModelAndView modelAndView = new ModelAndView("professor/addCurso");
 		
 		try {
 			
