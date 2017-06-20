@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.switchxiv.academicoweb.dao.ProfessorRepository;
 import br.com.switchxiv.academicoweb.dao.TurmaRepository;
 
 @Controller
@@ -19,6 +20,8 @@ public class TurmaController {
 
 	@Autowired
 	private TurmaRepository tRepository;
+	@Autowired
+	private ProfessorRepository pRepository;
 
 	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
 	public ModelAndView cadastro() {
@@ -28,6 +31,7 @@ public class TurmaController {
 		try {
 
 			modelAndView.addObject("ano", LocalDate.now().getYear());
+			modelAndView.addObject("professores", pRepository.list());
 
 		} catch (Exception e) {
 			e.printStackTrace();
