@@ -1,5 +1,7 @@
 package br.com.switchxiv.academicoweb.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -17,8 +19,8 @@ public class Disciplina extends AbstractEntity {
 	private String area;
 	@ManyToOne
 	private Curso curso;
-	@OneToMany(mappedBy="disciplinas")
-	private Turma turma;
+	@OneToMany(mappedBy="disciplina")
+	private List<Turma> turmas;
 
 	public String getNome() {
 		return nome;
@@ -44,13 +46,15 @@ public class Disciplina extends AbstractEntity {
 		this.curso = curso;
 	}
 
-	public Turma getTurma() {
-		return turma;
+	public List<Turma> getTurmas() {
+		return turmas;
 	}
 
-	public void setTurma(Turma turma) {
-		this.turma = turma;
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
+
+	
 
 
 }

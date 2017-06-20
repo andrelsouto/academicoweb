@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -15,10 +14,10 @@ public class Turma extends AbstractEntity {
 	private LocalDate ano;
 	@OneToMany(mappedBy = "turma")
 	private List<Desempenho> desempenhos;
-	@ManyToMany(mappedBy = "turmas")
-	private List<Disciplina> disciplinas;
 	@ManyToOne
-	private List<Professor> professores;
+	private Disciplina disciplina;
+	@ManyToOne
+	private Professor professor;
 
 	public int getSemestre() {
 		return semestre;
@@ -44,20 +43,20 @@ public class Turma extends AbstractEntity {
 		this.desempenhos = desempenhos;
 	}
 
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
-	public List<Professor> getProfessores() {
-		return professores;
+	public Professor getProfessor() {
+		return professor;
 	}
 
-	public void setProfessores(List<Professor> professores) {
-		this.professores = professores;
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 }

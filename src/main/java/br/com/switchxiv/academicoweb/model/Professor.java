@@ -17,8 +17,8 @@ public class Professor extends AbstractEntity {
 	private List<Curso> cursos;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Usuario usuario;
-	@OneToMany(mappedBy = "professores")
-	private Turma turma;
+	@OneToMany(mappedBy = "professor")
+	private List<Turma> turmas;
 
 	public String getAreaAtuacao() {
 		return areaAtuacao;
@@ -52,12 +52,12 @@ public class Professor extends AbstractEntity {
 		this.usuario = usuario;
 	}
 
-	public Turma getTurma() {
-		return turma;
+	public List<Turma> getTurmas() {
+		return turmas;
 	}
 
-	public void setTurma(Turma turma) {
-		this.turma = turma;
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
 
 
