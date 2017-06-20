@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,7 +17,7 @@ public class Turma extends AbstractEntity {
 	private List<Desempenho> desempenhos;
 	@ManyToMany(mappedBy = "turmas")
 	private List<Disciplina> disciplinas;
-	@ManyToMany
+	@ManyToOne
 	private List<Professor> professores;
 
 	public int getSemestre() {

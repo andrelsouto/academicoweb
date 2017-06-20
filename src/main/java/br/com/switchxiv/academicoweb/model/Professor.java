@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,8 +17,8 @@ public class Professor extends AbstractEntity {
 	private List<Curso> cursos;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Usuario usuario;
-	@ManyToMany(mappedBy = "professores")
-	private List<Turma> turmas;
+	@OneToMany(mappedBy = "professores")
+	private Turma turma;
 
 	public String getAreaAtuacao() {
 		return areaAtuacao;
@@ -51,12 +52,13 @@ public class Professor extends AbstractEntity {
 		this.usuario = usuario;
 	}
 
-	public List<Turma> getTurmas() {
-		return turmas;
+	public Turma getTurma() {
+		return turma;
 	}
 
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
+
 
 }

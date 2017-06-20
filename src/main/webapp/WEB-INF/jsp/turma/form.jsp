@@ -15,7 +15,7 @@
 			<div class="form">
 				<form:form action="${contextPath}turma/cadastrar" method="POST">
 					<div class="form-group">
-						<select id="" class="form-control" name="professor">
+						<select id="" class="form-control" name="professor[0]">
 							<option value="">professor</option>
 							<c:forEach items="${professores}" var="professor">
 								<option value="${professor.id}">${professor.usuario.nome}</option>
@@ -55,7 +55,7 @@ $(document).ready(function(){
 	var y = 0;
 	$('.add').click(function(){
 		x++;
-		$('.extra').append("<div class='"+ x + "'><div class='form-group'><select class='form-control' name='professor'>" +
+		$('.extra').append("<div class='"+ x + "'><div class='form-group'><select class='form-control' name='professor[" + x + "]'>" +
 							"<option value=''>professor</option>" +
 							"<c:forEach items='${professores}' var='professor'>" +
 							"<option value='${professor.id}'>${professor.usuario.nome}</option>" +

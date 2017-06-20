@@ -1,6 +1,7 @@
 package br.com.switchxiv.academicoweb.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -39,6 +40,13 @@ public class TurmaController {
 
 		return modelAndView;
 
+	}
+
+	@RequestMapping(value = "cadastrar", method = RequestMethod.POST)
+	public ModelAndView cadastrar(Long professor[]) {
+		
+		
+		return new ModelAndView("redirect:/turma/cadastro");
 	}
 
 }
