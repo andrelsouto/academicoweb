@@ -8,5 +8,6 @@ import br.com.switchxiv.academicoweb.model.Curso;
 public interface CursoRepository extends GenericRepository<Curso>{
 
 	List<Curso> getList();
+	public Curso findWithProfessores(Long id);
 
 }
